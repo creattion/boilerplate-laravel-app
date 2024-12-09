@@ -1,0 +1,10 @@
+{
+    "singleQuote": true,
+    "semi": true,
+    "tabWidth": 2,
+    "trailingComma": "all",
+    "plugins": [
+        "prettier-plugin-organize-imports",
+        "prettier-plugin-tailwindcss"
+    ]
+}
