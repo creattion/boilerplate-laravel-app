@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+}
+
+a {
+  @apply hover:text-primary-hover transition-all;
+}
