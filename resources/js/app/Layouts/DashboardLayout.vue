@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import Toasts from '@/Components/Toasts.vue';
+import Toasts from '@app/Components/Toasts.vue';
 import { Link, usePage } from '@inertiajs/vue3';
 import { computed, ref } from 'vue';
-import { Modal } from '../../../vendor/emargareten/inertia-modal/dist/inertia-modal';
+import { Modal } from '../../../../vendor/emargareten/inertia-modal/dist/inertia-modal';
 import ASide from './Partials/ASide.vue';
 import Header from './Partials/Header.vue';
 import Menu from './Partials/Menu.vue';

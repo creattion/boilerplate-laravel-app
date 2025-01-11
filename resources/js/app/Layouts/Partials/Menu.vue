@@ -8,8 +8,8 @@ const emit = defineEmits(['closeSideMenu']);
 <template>
   <ul class="mt-6" v-bind="$attrs">
     <MenuLink
-      :href="route('login')"
-      :active="route().current('login')"
+      :href="route('app.login')"
+      :active="route().current('app.login')"
       @click="emit('closeSideMenu')"
     >
       <House />

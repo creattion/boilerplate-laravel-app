@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
+use Illuminate\Http\Request;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -16,7 +17,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->group('app', [
-            \App\Http\Middleware\TenantAppMiddleware::class,
+            \App\Http\Middleware\CompanyAppMiddleware::class,
             \App\Http\Middleware\HandleInertiaAppRequests::class,
         ]);
 
@@ -27,6 +28,14 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->web(append: [
             \Illuminate\Http\Middleware\AddLinkHeadersForPreloadedAssets::class,
         ]);
+
+        $middleware->redirectGuestsTo(function (Request $request) {
+            if (in_array('auth:admin', $request->route()->middleware())) {
+                return route('admin.login');
+            }
+
+            return route('app.login');
+        });
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

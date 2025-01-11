@@ -2,10 +2,9 @@
 
 namespace App\Traits;
 
-use App\Exceptions\UserNotPermissionCompanyException;
 use App\Models\Company;
 
-trait TenantManagerTrait
+trait CompanyManagerTrait
 {
     public function setCompany(Company|int $company): static
     {
@@ -13,7 +12,7 @@ trait TenantManagerTrait
             $company = Company::find($company);
         }
 
-        if (!$this->userHasCompany($company)) {
+        if (! $this->userHasCompany($company)) {
             request()->user()->update([
                 'current_company_id' => null,
             ]);

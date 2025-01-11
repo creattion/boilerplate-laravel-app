@@ -5,8 +5,10 @@ use Illuminate\Support\Facades\Route;
 
 $url = config('app.url');
 
-Route::as('app.')->domain('app.'.$url)->group(function () {
-    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+Route::middleware(['app'])->as('app.')->domain('app.'.$url)->group(function () {
+    Route::middleware('auth:web')->group(function () {
+        Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    });
 
-    include __DIR__.'/auth.php';
+    require __DIR__.'/auth.php';
 });

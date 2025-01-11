@@ -8,7 +8,7 @@
 
   <!-- Scripts -->
   @routes
-  @vite(['resources/js/app.ts', "resources/js/Pages/{$page['component']}.vue"])
+  @vite(['resources/js/admin/app.ts', "resources/js/admin/Pages/{$page['component']}.vue"])
   @inertiaHead
 </head>
 <body class="antialiased">

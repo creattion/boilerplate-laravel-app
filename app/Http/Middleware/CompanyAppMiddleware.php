@@ -5,10 +5,14 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class TenantAppMiddleware
+class CompanyAppMiddleware
 {
     public function handle(Request $request, Closure $next)
     {
+        if (! auth()->check()) {
+            return $next($request);
+        }
+
         if (! auth()->user()->current_company_id) {
             return redirect()->route('companies.select.index');
         }

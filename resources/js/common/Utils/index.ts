@@ -4,7 +4,7 @@ import numberToBRL from './formatMoney';
 import formatPhone from './formatPhone';
 import formatZipcode from './formatZipcode';
 import * as productUtils from './product';
-import statusOrder from './statusOrder';
+import { rootDomain } from './rootDomain';
 import typePaymentOrder from './typePaymentOrder';
 
 export {
@@ -14,6 +14,6 @@ export {
   formatZipcode,
   numberToBRL,
   productUtils,
-  statusOrder,
+  rootDomain,
   typePaymentOrder,
 };
